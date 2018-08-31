@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 
-import { Page1Component } from './page1/page1.component';
+import { LoginComponent } from './login/login.component';
 
 @Component({
   selector: 'app-root',
@@ -8,5 +8,5 @@ import { Page1Component } from './page1/page1.component';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
-  root = Page1Component;
+  root = LoginComponent;
 }

@@ -2,7 +2,7 @@
 <widget id="com.syss.app.manguitas.frontend.mobile" version="1.0.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
     <name>manguitas_FRONT_mobile</name>
     <description>
-        Angular + Onsen UI + Cordova sample app
+        Angular + Onsen UI + Cordova FRONTEND Mobile Application
     </description>
     <author email="dev@cordova.apache.org" href="http://cordova.io">
         Apache Cordova Team

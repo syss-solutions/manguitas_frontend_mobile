@@ -2,19 +2,19 @@ import { Component, ViewChild, EventEmitter, OnInit, OnDestroy } from '@angular/
 import { takeUntil } from 'rxjs/operators';
 
 import { MenuService } from '../core/services';
-import { SideComponent } from './side/side.component';
-import { ContentComponent } from './content/content.component';
+import { CollectionsSideComponent } from './side/side.component';
+import { CollectionsContentComponent } from './content/content.component';
 
 @Component({
-  selector: 'ons-page[page1]',
-  templateUrl: './page1.component.html',
-  styleUrls: ['./page1.component.scss']
+  selector: 'ons-page[collections]',
+  templateUrl: './collections.component.html',
+  styleUrls: ['./collections.component.scss']
 })
-export class Page1Component implements OnInit, OnDestroy {
+export class CollectionsComponent implements OnInit, OnDestroy {
   private readonly onDestroy$ = new EventEmitter();
 
-  side = SideComponent;
-  content = ContentComponent;
+  side = CollectionsSideComponent;
+  content = CollectionsContentComponent;
 
   @ViewChild('splitter') splitter;
 

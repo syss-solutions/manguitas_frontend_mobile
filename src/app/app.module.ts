@@ -4,23 +4,25 @@ import { OnsenModule } from 'ngx-onsenui';
 
 import { CoreModule } from './core/core.module';
 import { AppComponent } from './app.component';
-import { Page1Component } from './page1/page1.component';
-import { Page2Component } from './page2/page2.component';
-import { SideComponent } from './page1/side/side.component';
-import { ContentComponent } from './page1/content/content.component';
-import { Tab1Component } from './page1/content/tab1/tab1.component';
-import { Tab2Component } from './page1/content/tab2/tab2.component';
+import { LoginComponent } from './login/login.component';
+import { ForgotComponent } from './forgot/forgot.component';
+import { SignupComponent } from './signup/signup.component';
+import { CollectionsComponent } from './collections/collections.component';
+import { CollectionsContentComponent } from './collections/content/content.component';
+import { CollectionsSideComponent } from './collections/side/side.component';
+import { DetailsComponent } from './details/details.component';
 
 /**
  * Page components
  */
 const pages = [
-  Page1Component,
-  Page2Component,
-  SideComponent,
-  ContentComponent,
-  Tab1Component,
-  Tab2Component,
+  LoginComponent,
+  ForgotComponent,
+  SignupComponent,
+  CollectionsComponent,
+  CollectionsContentComponent,
+  CollectionsSideComponent,
+  DetailsComponent
 ];
 
 @NgModule({
