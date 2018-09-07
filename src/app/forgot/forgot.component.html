@@ -26,11 +26,20 @@
         </div>
         -->
         <div class="form-row">
-          <input type="text" class="text-input--underbar width-full" placeholder="Email" value="">
+          <input  id="username"
+                  type="email" 
+                  modifier="underbar"
+                  class="text-input--underbar width-full" 
+                  placeholder="Enter an Email Adress" 
+                  value=""
+                  title="User Name"
+                  required 
+                  float
+                  >
         </div>
 
         <div class="vspc form-row">
-          <ons-button modifier="large--cta">Get Password</ons-button>
+          <ons-button modifier="large--cta" (click)="send()">Get Password</ons-button>
         </div>
       </div>
     </ons-page>

@@ -11,6 +11,7 @@ import { CollectionsComponent } from './collections/collections.component';
 import { CollectionsContentComponent } from './collections/content/content.component';
 import { CollectionsSideComponent } from './collections/side/side.component';
 import { DetailsComponent } from './details/details.component';
+import { PreferencesComponent } from './preferences/preferences.component';
 
 /**
  * Page components
@@ -22,7 +23,8 @@ const pages = [
   CollectionsComponent,
   CollectionsContentComponent,
   CollectionsSideComponent,
-  DetailsComponent
+  DetailsComponent,
+  PreferencesComponent
 ];
 
 @NgModule({

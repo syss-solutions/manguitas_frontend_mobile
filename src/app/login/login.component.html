@@ -12,21 +12,47 @@
   </head>
   <body>
 -->
+
 <ons-page>
     <ons-toolbar>
       <div class="center">Log In</div>
       <!--<div class="right"><ons-toolbar-button>Close</ons-toolbar-button></div>-->
     </ons-toolbar>
-
+    
+    <!-- 20180903 - Login Validation -->
     <div class="login-form">
-      <input type="email" class="text-input--underbar" placeholder="Email" value="">
-      <input type="password" class="text-input--underbar" placeholder="Password" value="">
+      <input  id="username"
+              type="email" 
+              modifier="underbar"
+              class="text-input--underbar" 
+              placeholder="Enter an Email Adress" 
+              value=""
+              title="User Name"
+              required 
+              float
+              >
+      <input  id="password"  
+              type="password" 
+              modifier="underbar"
+              class="text-input--underbar" 
+              placeholder="Enter your Password" 
+              value=""
+              title="Password"
+              required 
+              float
+              >
       <br><br>
-      <ons-button modifier="large" class="login-button">Log In</ons-button>
+      <ons-button modifier="large" class="login-button" type="submit" (click)="login()">
+        Log In
+      </ons-button>
       <br><br>
-      <ons-button modifier="quiet" class="forgot-password">Forgot password?</ons-button>
+      <!-- 20180903 - Forgot Page Navigation -->
+      <ons-button modifier="quiet" class="forgot-password" (click)="forgot()">
+        Forgot password?
+      </ons-button>
     </div>
   </ons-page>
+
 <!--  
 <script>//<![CDATA[
 document.write('<script src="//' + (location.hostname || 'localhost') + ':35729/livereload.js?snipver=1"><\/script>')
