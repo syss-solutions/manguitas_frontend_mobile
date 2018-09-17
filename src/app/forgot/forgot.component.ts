@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 
 import { OnsNavigator, Params, onsNotification } from 'ngx-onsenui';
-// import { email } from 'emailjs/email';
+import { email } from 'emailjs/email';
 
 @Component({
   selector: 'ons-page[forgot]',
@@ -47,7 +47,6 @@ export class ForgotComponent implements OnInit, OnDestroy {
       onsNotification.alert('Incorrect e-mail format');
     } else {
       (<HTMLProgressElement>document.getElementById('progress')).value=100;
-      /*
       var server  = email.server.connect({
         user:     "becaskurtces@gmail.com", 
         password: "t57ycJ07", 
@@ -55,7 +54,7 @@ export class ForgotComponent implements OnInit, OnDestroy {
         ssl:      true
       });
 
-      / send the message and get a callback with an error or details of the message that was sent
+      // Send the message and get a callback with an error or details of the message that was sent
       server.send({
         text:       "You have signed up", 
         from:       "becaskurtces@gmail.com", 
@@ -73,7 +72,7 @@ export class ForgotComponent implements OnInit, OnDestroy {
           //res.json({success: true, msg: 'sent'});
         }
       });
-      */
+      
       console.info('E-Mail sended to e-mail: %d', username);
       onsNotification.alert('E-Mail sended to: ' + username);
       (<HTMLProgressElement>document.getElementById('progress')).value=0;
