@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+  <file source-language="en" datatype="plaintext" original="ng2.template">
+    <body>
+      <trans-unit id="introductionHeader" datatype="html">
+        <source>Log In</source>
+        <target>Identificate</target>
+      </trans-unit>
+      <trans-unit id="loginButton" datatype="html">
+        <source>Log In</source>
+        <target>Entrar</target>
+      </trans-unit>
+      <trans-unit id="forgotButton" datatype="html">
+        <source>Forgot password?</source>
+        <target>¿Olvidaste tu contraseña?</target>
+      </trans-unit>
+      <trans-unit id="signUpButton" datatype="html">
+        <source>Sign Up</source>
+        <target>Registrate</target>
+      </trans-unit>
+      <trans-unit id="emailMessage" datatype="html">
+        <source>Enter an Email Adress</source>
+        <target>Introduce una dirección de correo</target>
+      </trans-unit>
+      <trans-unit id="passwordMessage" datatype="html">
+        <source>Enter your Password</source>
+        <target>Introduce tu contraseña</target>
+      </trans-unit>
+      <trans-unit id="backButton" datatype="html">
+        <source>Back</source>
+        <target>Atrás</target>
+      </trans-unit>
+      <trans-unit id="passRecoveryHeader" datatype="html">
+        <source>Password Recovery</source>
+        <target>Recuperar contraseña</target>
+      </trans-unit>
+      <trans-unit id="getPasswordButton" datatype="html">
+        <source>Get Password</source>
+        <target>Obtener contraseña</target>
+      </trans-unit>
+    </body>
+  </file>
+</xliff>

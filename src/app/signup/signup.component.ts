@@ -1,5 +1,4 @@
-import { Component, ViewChild, EventEmitter, OnInit, OnDestroy } from '@angular/core';
-import { takeUntil } from 'rxjs/operators';
+import { Component, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 
 import { MenuService } from '../core/services';
 

@@ -15,17 +15,18 @@
 
 <ons-page>
     <ons-toolbar>
-      <div class="center">Log In</div>
+      <div i18n="@@introductionHeader" class="center">Log In</div>
       <!--<div class="right"><ons-toolbar-button>Close</ons-toolbar-button></div>-->
     </ons-toolbar>
     
     <!-- 20180903 - Login Validation -->
     <div class="login-form">
-      <input  id="username"
+      <input  i18n="@@emailMessage"
+              id="username"
               type="email" 
               modifier="underbar"
               class="text-input--underbar" 
-              placeholder="Enter an Email Adress" 
+              placeholder="e-mail" 
               value=""
               title="User Name"
               required 
@@ -35,21 +36,27 @@
               type="password" 
               modifier="underbar"
               class="text-input--underbar" 
-              placeholder="Enter your Password" 
+              placeholder="password" 
               value=""
               title="Password"
               required 
               float
               >
       <br><br>
-      <ons-button modifier="large" class="login-button" type="submit" (click)="login()">
+      <ons-button i18n="@@loginButton" modifier="large" class="login-button" (click)="login()">
         Log In
       </ons-button>
       <br><br>
       <!-- 20180903 - Forgot Page Navigation -->
-      <ons-button modifier="quiet" class="forgot-password" (click)="forgot()">
+      <ons-button i18n="@@forgotButton" modifier="quiet" class="forgot-password" (click)="forgot()">
         Forgot password?
       </ons-button>
+      <!-- 20180917 - Sign Up Page Navigation -->
+      <ons-button i18n="@@signUpButton" modifier="quiet" class="forgot-password" (click)="signup()">
+        Sign Up
+      </ons-button>
+      <!-- 20180914 - Circular Progress Bar -->
+      <ons-progress-circular id="progress" value="0"></ons-progress-circular>
     </div>
   </ons-page>
 
