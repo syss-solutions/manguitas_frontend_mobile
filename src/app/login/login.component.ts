@@ -12,6 +12,26 @@ import { Auth } from '../../model/auth';
 import { Observable } from 'rxjs';
 import { CollectionsComponent } from '../collections/collections.component';
 
+// 20180918 - i18next module.
+/*
+import { i18next, i18nextXHRBackend, i18nextBrowserLanguageDetector } from 'i18next';
+https://www.i18next.com/overview/getting-started
+i18next
+  .use(i18nextXHRBackend)
+  .use(i18nextBrowserLanguageDetector)
+  .init({
+    fallbackLng: 'en',
+    debug: true,
+    ns: ['special', 'common'],
+    defaultNS: 'special',
+    backend: {
+      loadPath: 'https://raw.githubusercontent.com/i18next/i18next-gitbook/master/locales/{{lng}}/{{ns}}.json',
+      crossDomain: true
+    }
+  }, function(err, t) {
+    setLanguageContent();
+  });
+*/
 @Component({
   selector: 'ons-page[login]',
   templateUrl: './login.component.html',

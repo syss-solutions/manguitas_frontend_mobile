@@ -1,5 +1,7 @@
 # TODO
 - onsen i18n.
+- Recovery password Web service in forgot.component.ts
 - Mailing.
+- Manage User datas.
 - Login Session. Logout.
 - Preferences Page (Language).

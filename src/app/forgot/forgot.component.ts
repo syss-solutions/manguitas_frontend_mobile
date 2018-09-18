@@ -3,6 +3,11 @@ import { Component, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 import { OnsNavigator, Params, onsNotification } from 'ngx-onsenui';
 import { email } from 'emailjs/email';
 
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+import { Passwd } from '../../model/passwd';
+import { Observable } from 'rxjs';
+
 @Component({
   selector: 'ons-page[forgot]',
   templateUrl: './forgot.component.html',
@@ -15,7 +20,7 @@ export class ForgotComponent implements OnInit, OnDestroy {
   /**
    * Constructor
    */
-  constructor(private navi: OnsNavigator, private params: Params) {
+  constructor(private navi: OnsNavigator, private params: Params, private http: HttpClient) {
     this.userInformed = params.data.username;
   }
 
@@ -38,7 +43,6 @@ export class ForgotComponent implements OnInit, OnDestroy {
    * 20180914 - Send Password Recovery.
    */
   send() {
-    // TODO Send e-mail
     var username = (<HTMLInputElement>document.getElementById('username')).value;
 
     console.log('Recovering password for: %d', username);
@@ -47,32 +51,33 @@ export class ForgotComponent implements OnInit, OnDestroy {
       onsNotification.alert('Incorrect e-mail format');
     } else {
       (<HTMLProgressElement>document.getElementById('progress')).value=100;
-      var server  = email.server.connect({
-        user:     "becaskurtces@gmail.com", 
-        password: "t57ycJ07", 
-        host:     "<email server url>", 
-        ssl:      true
-      });
 
-      // Send the message and get a callback with an error or details of the message that was sent
-      server.send({
-        text:       "You have signed up", 
-        from:       "becaskurtces@gmail.com", 
-        to:         username,
-        subject:    "Welcome to my app",
-        attachment: 
-        [
-          {data:"<html>i <i>hope</i> this works!</html>", alternative:true}
-        ]
-      }, function(err, message) { 
-        if(err) {
-          console.log(err);
-        } else {
-          onsNotification.alert('Incorrect e-mail format');
-          //res.json({success: true, msg: 'sent'});
-        }
-      });
-      
+      this.sendEmail(username, '12345678');
+      /*
+      this.recoverPasswdService(username)
+        .subscribe(
+          res => {
+            if(res.password) {
+              console.info('Password recovered for User: %d', username);
+              this.sendEmail(username, res.password);
+            } else {
+              (<HTMLProgressElement>document.getElementById('progress')).value=0;
+              console.error('The password cannot be sended: Incorrect username.');
+              onsNotification.alert('The password cannot be sended: Incorrect username.');
+              // onsNotification.toast('Incorrect username or password.', {timeout: 2000});
+            }
+          },
+          err => {
+            (<HTMLProgressElement>document.getElementById('progress')).value=0;
+            onsNotification.alert('The password cannot be sended: Incorrect username.');
+            console.error('Error occured!');
+            console.error(err.error);
+            console.error(err.name);
+            console.error(err.message);
+            console.error(err.status);
+          }
+        );
+        */
       console.info('E-Mail sended to e-mail: %d', username);
       onsNotification.alert('E-Mail sended to: ' + username);
       (<HTMLProgressElement>document.getElementById('progress')).value=0;
@@ -89,5 +94,54 @@ export class ForgotComponent implements OnInit, OnDestroy {
     
     serchfind = regexp.test(search);
     return serchfind;
+  }
+
+  /**
+   * 20180918 - Password Recovery Service Calling.
+   */
+  recoverPasswdService(email:string): Observable<Passwd> {
+    var body:string;
+    body = JSON.stringify({email: email});
+
+    const httpOptions = {
+      headers: new HttpHeaders({ 
+          'Content-Type': 'application/json',
+          'Cache-Control': 'no-cache'
+        })
+    };
+    // TODO Get the user's password.
+    return this.http.post<Passwd>('http://127.0.0.1:3000/api/user', body, httpOptions);
+  }
+
+  /**
+   * 20180918 - e-mail sender method.
+   */
+  sendEmail(username:string, password:string) {
+    var server  = email.server.connect({
+      user:     "becaskurtces@gmail.com", 
+      password: "t57ycJ07", 
+      host:     "smtp.gmail.com", 
+      ssl:      true
+    });
+
+    // Send the message and get a callback with an error or details of the message that was sent
+    server.send({
+      text:       "You have signed up", 
+      from:       "becaskurtces@gmail.com", 
+      to:         username,
+      subject:    "Welcome to Manguitas",
+      attachment: 
+      [
+        {data:"<html>Your <b>password</b> is:</br></br></t>"+ password + "</br></br>Regards!</html>", alternative:true}
+      ]
+    }, function(err, message) { 
+      if(err) {
+        console.log(err);
+        onsNotification.alert('e-mail error: ' + err);
+      } else {
+        onsNotification.alert('Incorrect e-mail format');
+        // res.json({success: true, msg: 'sent'});
+      }
+    });
   }
 }
