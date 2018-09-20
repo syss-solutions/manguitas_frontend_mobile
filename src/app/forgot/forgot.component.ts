@@ -1,7 +1,7 @@
 import { Component, EventEmitter, OnInit, OnDestroy } from '@angular/core';
 
 import { OnsNavigator, Params, onsNotification } from 'ngx-onsenui';
-import { email } from 'emailjs/email';
+// import { email } from 'emailjs/email';
 
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
@@ -52,7 +52,7 @@ export class ForgotComponent implements OnInit, OnDestroy {
     } else {
       (<HTMLProgressElement>document.getElementById('progress')).value=100;
 
-      this.sendEmail(username, '12345678');
+      //this.sendEmail(username, '12345678');
       /*
       this.recoverPasswdService(username)
         .subscribe(
@@ -116,6 +116,7 @@ export class ForgotComponent implements OnInit, OnDestroy {
   /**
    * 20180918 - e-mail sender method.
    */
+  /*
   sendEmail(username:string, password:string) {
     var server  = email.server.connect({
       user:     "becaskurtces@gmail.com", 
@@ -144,4 +145,5 @@ export class ForgotComponent implements OnInit, OnDestroy {
       }
     });
   }
+  */
 }
